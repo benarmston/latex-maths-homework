@@ -1,0 +1,73 @@
+% Use the exam document class.  Its intended for writing exam papers, but we can probably make good use of it for writing answers.
+\documentclass{exam}
+
+% Define the header and footer styles.  We specify that both a header and a
+% footer should be on each page.
+\pagestyle{headandfoot}
+% The header has name, description of the home work and the date that the PDF
+% was generated.  These are rendered in a large bold font.
+\header{\bfseries\large Ben Armston}
+       {\bfseries\large Math homework}
+       {\bfseries\large \today}
+% The first page and every other page are going to have a horizontal rule below
+% the header.
+\firstpageheadrule
+\runningheadrule
+% The footer has a single centered page count.
+\footer{}{Page \thepage\ of \numpages}{}
+
+% With the preamble complete we can start the document add optional
+% introductory text and start the questions (or answers as we are using them).
+\begin{document}
+Some introductory text.  Many \LaTeX\ commands and environments can be used
+here. There is a good chance that you won't want any introductory text; at least
+not for maths homework.
+\begin{questions}
+
+% Inside the questions environment we have a \question command.  Use this to
+% start a new top-level question.  It will be numbered automatically.
+\question
+% After the \question command write the answer. Either on the same line or
+% below it. Use \( to enter a math environment and \) to exit it.
+\(x = \sqrt{3}\)
+
+\question
+% Add a label so we can reference this question later.
+\label{my-label}
+% Questions can have parts by starting a parts environment with \begin{parts}.
+% Inside that environment we have a \part command.  Again each part will be
+% automatically numbered.
+\begin{parts}
+% Here we provide the answer on the same line as the part.  We could also have
+% it on a line below.
+\part \(x^2 + 4\)
+\part \(x <= 0\)
+\begin{subparts}
+\subpart \(x < 0\) is just fine
+\subpart \(x = 0\) is also fine
+\end{subparts}
+\end{parts}
+
+\question
+\label{another-label}
+Unlike question \ref{my-label}, this question has both a direct answer and
+parts.  Notice how its display differs.
+\begin{parts}
+\part
+\begin{subparts}
+\subpart \(a^2 + b^2 = c^2\)
+\subpart \(e^{\pi \i} - 1 = 0\)
+\subpart
+\( \sum_{i=1}^{\infty} \frac{1}{n^s} = \prod_p \frac{1}{1 - p^{-s}} \)
+\end{subparts}
+\end{parts}
+
+
+\question
+\label{yet-another-label}
+In question \ref{another-label} we made reference to question \ref{my-label}.
+We referenced it via its label \verb!\ref{my-label}! and not by its question
+number.  This is something that \LaTeX\ makes easy for us.
+
+\end{questions}
+\end{document}
